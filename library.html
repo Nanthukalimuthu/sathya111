@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Library Management</title>
+<style>
+body{font-family:Arial;text-align:center;background:#eef4ff}
+header{background:#174a7c;color:white;padding:20px}
+.box{background:white;width:400px;margin:30px auto;padding:25px;border-radius:10px}
+input,button{width:90%;padding:10px;margin:7px}
+button{background:#174a7c;color:white;border:0}
+.book{background:#eef4ff;margin-top:15px;padding:15px}
+</style>
+</head>
+<body>
+<header>
+<h1>Library Management</h1>
+</header>
+<div class="box">
+<h2>Add Book</h2>
+<input id="bookid" placeholder="Book ID">
+<input id="bookname" placeholder="Book Name">
+<input id="author" placeholder="Author Name">
+<button onclick="addBook()">Add Book</button>
+<button onclick="issueBook()">Issue Book</button>
+<div id="books"></div>
+</div>
+<script>
+function addBook(){
+let id=document.getElementById("bookid").value;
+let name=document.getElementById("bookname").value;
+let author=document.getElementById("author").value;
+if(id==""||name==""||author==""){
+alert("Enter all details");
+return;
+}
+document.getElementById("books").innerHTML+=
+"<div class='book'>"+
+"<b>Book ID:</b> "+id+"<br>"+
+"<b>Book Name:</b> "+name+"<br>"+
+"<b>Author:</b> "+author+"<br>"+
+"<b>Status:</b> Available"+
+"</div>";
+document.getElementById("bookid").value="";
+document.getElementById("bookname").value="";
+document.getElementById("author").value="";
+}
+function issueBook(){
+alert("Book Issued Successfully!");
+}
+</script>
+</body>
+</html>
